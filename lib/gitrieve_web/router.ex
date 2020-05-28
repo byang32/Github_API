@@ -17,7 +17,8 @@ defmodule GitrieveWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    # get "/retrieve/new", RetrieveController, :new
+    get "/retrieve/new", RetrieveController, :new
+    post "/retrieve", RetrieveController, :create
   end
 
   # Other scopes may use custom stacks.

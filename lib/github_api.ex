@@ -1,11 +1,12 @@
 defmodule GithubApi do
 
-  def fetch_org(org) do
-    github_client()
+  # def fetch_github(org) do
+  #   github_client()
     
-    get_repo_list(org) &&
-    get_org_repo(org)
-  end
+  #   get_org_repo(org) ++
+  #   get_repo_name(org) ++
+  #   get_repo_url(org)
+  # end
 
   def github_client do
     Tentacat.Client.new
@@ -16,7 +17,6 @@ defmodule GithubApi do
     {200, data, _response} = Tentacat.Organizations.find(client, org)
 
     all = fn :get, data, next -> Enum.map(data, next) end
-
     get_in(data, [all])
       
     %{ 
@@ -25,16 +25,21 @@ defmodule GithubApi do
       github_url: data["url"], 
       public_repos: data["public_repos"]
     }
-   
   end
 
-  def get_repo_list(org) do
+  def get_repo_name(org) do
     client = github_client()
     {200, data, _response} = Tentacat.Repositories.list_orgs(client, org)
 
     all = fn :get, data, next -> Enum.map(data, next) end
-
     get_in(data, [all, "name"])
-    
+  end
+
+  def get_repo_url(org) do
+    client = github_client()
+    {200, data, _response} = Tentacat.Repositories.list_orgs(client, org)
+
+    all = fn :get, data, next -> Enum.map(data, next) end
+    get_in(data, [all, "clone_url"])
   end
 end
