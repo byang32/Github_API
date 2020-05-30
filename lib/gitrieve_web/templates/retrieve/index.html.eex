@@ -1,0 +1,15 @@
+<h5>Github Repositories</h5>
+
+<ul class="collection">
+    <%= for retrieve <- @retrieve do %>
+        <li class="collection-item">
+            <%= retrieve.org_name %>
+        </li>
+    <% end %>
+</ul>
+<div class="material-icons">
+    <%= link to: Routes.retrieve_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i>
+    <% end %>
+    </a>
+</div>

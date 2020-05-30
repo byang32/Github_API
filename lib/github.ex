@@ -1,4 +1,4 @@
-defmodule GithubApi do
+defmodule Github do
 
   # def fetch_github(org) do
   #   github_client()

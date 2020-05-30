@@ -1,7 +1,7 @@
 <%= form_for @changeset, Routes.retrieve_path(@conn, :create), fn f -> %>
     <div class="form-group">
-        <%= text_input f, :org_name, placeholder: "Github Organization", class: "form-control" %>
+        <%= text_input f, :org_name, placeholder: "Github Organization Name", class: "form-control" %>
     </div>
 
-    <%= submit "Search", class: "btn btn-primary" %>
+    <%= submit "Search", class: "btn btn-primary", to: Routes.github_path(@conn, :search) %>
 <% end %>

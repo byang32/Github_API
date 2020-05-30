@@ -16,11 +16,16 @@ defmodule GitrieveWeb.Router do
   scope "/", GitrieveWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", RetrieveController, :index
     get "/retrieve/new", RetrieveController, :new
     post "/retrieve", RetrieveController, :create
   end
 
+  scope "/github", GitrieveWeb do
+    pipe_through :browser 
+
+    get "/github/search", GithubController, :search
+  end
   # Other scopes may use custom stacks.
   # scope "/api", GitrieveWeb do
   #   pipe_through :api
