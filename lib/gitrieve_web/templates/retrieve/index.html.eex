@@ -1,12 +1,22 @@
-<h5>Github Repositories</h5>
+<%= for retrieve <- @retrieve do %>
+<h5> <%= retrieve.org_name%> Repositories</h5>
 
 <ul class="collection">
-    <%= for retrieve <- @retrieve do %>
         <li class="collection-item">
-            <%= retrieve.org_name %>
+            Company Name: <%= retrieve.org_name %>
         </li>
-    <% end %>
+        <li class="collection-item">
+            Location: <%= retrieve.location %>
+        </li>
+        <li class="collection-item">
+            Public Repos: <%= retrieve.public_repos %>
+        </li>
+        <li class="collection-item">
+        <a href="/">Github Url: <%= retrieve.url %></a>
+        </li>
 </ul>
+<% end %>
+
 <div class="material-icons">
     <%= link to: Routes.retrieve_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">add</i>

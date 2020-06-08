@@ -24,7 +24,6 @@ defmodule GitrieveWeb.Router do
   scope "/github", GitrieveWeb do
     pipe_through :browser 
 
-    get "/github/search", GithubController, :search
   end
   # Other scopes may use custom stacks.
   # scope "/api", GitrieveWeb do
