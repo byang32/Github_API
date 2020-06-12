@@ -2,39 +2,44 @@ defmodule GitrieveWeb.RetrieveController do
     use GitrieveWeb, :controller
 
     alias Github
-    alias Gitrieve.Retrieve
+    alias Gitrieve.Company
     alias Gitrieve.Repo
 
     def index(conn, _params) do
-        retrieve = Repo.all(Retrieve)
+        company = Repo.all(Company)
         
-        render conn, "index.html", retrieve: retrieve
+        render(conn, "index.html", company: company)
     end
 
-    def show(conn, %{"retrieve" => retrieve}) do
-        repos = Github.get_repo(retrieve["org_name"])
-        urls = Github.get_url(retrieve["org_name"])
-
-        render(conn, "show.html", repos: repos, urls: urls)
+    def show(conn, params) do
+        repos = Github.get_repos("scriptdrop")
+        
+        IO.puts "+++++++++++++++"
+        IO.inspect(repos)
+        IO.puts "+++++++++++++++"
+        render(conn, "show.html", repos: repos)
     end
 
     def new(conn, _params) do
-        changeset = Retrieve.changeset(%Retrieve{}, %{})
+        changeset = Company.changeset(%Company{}, %{})
        
-        render conn, "new.html", changeset: changeset
+        render(conn, "new.html", changeset: changeset)
     end
 
-    def create(conn, %{"retrieve" => retrieve}) do
-        changeset = Retrieve.changeset(%Retrieve{},
-            Github.get_org(retrieve["org_name"]))
-        
+    def create(conn, %{"company" => company}) do
+        changeset = Company.changeset(%Company{},
+            Github.fetch_github(company["org_name"]))
+        IO.puts "+++++++++++++++"
+        IO.inspect(Github.fetch_github(company["org_name"]))
+        IO.inspect(changeset)
+        IO.puts "+++++++++++++++"
         case Repo.insert(changeset) do
             {:ok, post} ->
                 conn
                 |> put_flash(:info, "Repositories has been retrieved")
                 |> redirect(to: Routes.retrieve_path(conn, :index))
             {:error, changeset} ->
-                render conn, "new.html", changeset: changeset
+                render(conn, "new.html", changeset: changeset)
         end
         
     end

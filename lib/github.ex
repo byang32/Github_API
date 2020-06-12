@@ -1,13 +1,12 @@
 defmodule Github do
-  alias Gitrieve.Organization
 
-  # def fetch_github(org_name) do
-  #   client = github_client()
-    
-  #   get_org_repo(org_name) ++
-  #   get_repo_name(org_name) ++
-  #   get_repo_url(org_name) ++
-  # end
+  def fetch_github(org_name) do
+    client = github_client()
+
+    get_org(org_name) ++
+    get_repos(org_name)
+    |> Map.new()
+  end
 
   def github_client do
     Tentacat.Client.new()
@@ -19,31 +18,24 @@ defmodule Github do
 
     all = fn :get, data, next -> Enum.map(data, next) end
     get_in(data, [all])
-    |> Organization.new()
-    %{ 
+    # |> Organization.new()
+    [
       location: data["location"],
       org_name: data["name"],
       public_repos: data["public_repos"],
       url: data["url"]
-    }
+    ]
     
   end
 
-  def get_repo_name(org_name) do
+  def get_repos(org_name) do
     client = github_client()
     {200, data, _response} = Tentacat.Repositories.list_orgs(client, org_name)
 
     all = fn :get, data, next -> Enum.map(data, next) end
-    get_in(data, [all, "name"])
-
-  end
-
-  def get_repo_url(org_name) do
-    client = github_client()
-    {200, data, _response} = Tentacat.Repositories.list_orgs(client, org_name)
-
-    all = fn :get, data, next -> Enum.map(data, next) end
-    get_in(data, [all, "clone_url"])
-
+    [
+      repo_list: get_in(data, [all, "name"]), 
+      repo_url: get_in(data, [all, "clone_url"])
+    ]
   end
 end

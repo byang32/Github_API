@@ -1,8 +1,2 @@
 <h5>Repositories</h5>
-<%= for repos <- @repos do %>
-<ul>
-    <li class="collection-item">
-        Repositories <%= repos.repo_list %>
-    </li>
-</ul>
-<% end %>
+

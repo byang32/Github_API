@@ -16,9 +16,11 @@ defmodule GitrieveWeb.Router do
   scope "/", GitrieveWeb do
     pipe_through :browser
 
+    # resources "/", RetrieveController, 
     get "/", RetrieveController, :index
     get "/retrieve/new", RetrieveController, :new
     post "/retrieve", RetrieveController, :create
+    get "/retrieve", RetrieveController, :show, param: "org_name"
   end
 
   scope "/github", GitrieveWeb do
