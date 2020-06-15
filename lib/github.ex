@@ -1,5 +1,7 @@
 defmodule Github do
 
+  def github_client, do: Tentacat.Client.new(%{access_token: "c4a847cad1988bdf9454351c257efdf7460d7c50"})
+
   def fetch_github(org_name) do
     client = github_client()
 
@@ -8,17 +10,13 @@ defmodule Github do
     |> Map.new()
   end
 
-  def github_client do
-    Tentacat.Client.new()
-  end
-
   def get_org(org_name) do
     client = github_client()
     {200, data, _response} = Tentacat.Organizations.find(client, org_name)
 
     all = fn :get, data, next -> Enum.map(data, next) end
     get_in(data, [all])
-    # |> Organization.new()
+
     [
       location: data["location"],
       org_name: data["name"],

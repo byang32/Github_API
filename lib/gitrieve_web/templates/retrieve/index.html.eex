@@ -14,12 +14,20 @@
         <li class="collection-item">
             Github Url: <%= company.url %>
         </li>
-        <li class="collection-item">
-            Repo Name: <%= company.repo_list %>
-        </li>
-        <li class="collection-item">
-            Repo Url: <%= company.repo_url %>
-        </li>
+</ul>
+<h5>Repositories</h6>
+<ul class="collection">
+<!-- ************* for loop ************** -->
+        <%= Enum.map(company.repo_list, fn(repo) -> %>
+        <%= content_tag(:li, "#{repo}", class: "collection-item") %>
+         <% end) %>
+ <!-- ********** end ********** -->
+
+<!-- ************* for loop repo_url ************ -->
+        <%= Enum.map(company.repo_url, fn(u) -> %>
+        <%= content_tag(:li, "#{u}", class: "collection-item")%>
+         <% end) %>
+<!-- ************ end ************* -->
 </ul>
 <% end %>
 <div>
