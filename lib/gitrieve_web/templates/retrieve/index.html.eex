@@ -1,6 +1,9 @@
+<section><p>
+    Welcome to Gitrieve a Web API that retrieves an organization's repositories from Github.
+</p></section>
+
 <%= for company <- @company do %>
 <h5> <%= company.org_name%> Repositories</h5>
-
 <ul class="collection">
         <li class="collection-item">
             Organization: <%= link company.org_name, to: company.url %>
@@ -11,28 +14,10 @@
         <li class="collection-item">
             Public Repos: <%= company.public_repos %>
         </li>
-        <li class="collection-item">company.message</li>
-</ul>
-<section>
-<div class="repos">
-<h5>Repositories</h6>
-<ul class="collection urls">
-      <% repo_info = Enum.zip(company.repo_list, company.repo_url)%>
-      <%= Enum.map(repo_info, fn({repo, url}) -> %>
-      <%= link to: url do %>
-      <%= content_tag(:li, "#{repo}", class: "collection-item") %>
-      <% end %>
-      <%= end) %>
+        <li class="collection-item material icon"><%= link "Repositories", to: Routes.retrieve_path(@conn, :show, company) %>
+        <span class="material-icons">arrow_forward</span></li>
 </ul>
 <% end %>
-</div>
-</section>
-<div>
-    <%= link to: Routes.retrieve_path(@conn, :show) do %>
-        <p>Show Repositories</p>
-    <% end %>
-    </a>
-</div>
 
 <div class="material-icons">
     <%= link to: Routes.retrieve_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>

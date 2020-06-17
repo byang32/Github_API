@@ -1,2 +1,9 @@
-<h5>Repositories</h5>
-
+<h5><%= @company.org_name %> Repositories</h6>
+<ul class="collection urls">
+      <% repo_info = Enum.zip(@company.repo_list, @company.repo_url)%>
+      <%= Enum.map(repo_info, fn({repo, url}) -> %>
+      <%= link to: url do %>
+      <%= content_tag(:li, "#{repo}", class: "collection-item") %>
+      <% end %>
+      <%= end) %>
+</ul>

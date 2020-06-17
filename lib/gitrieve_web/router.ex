@@ -20,7 +20,8 @@ defmodule GitrieveWeb.Router do
     get "/", RetrieveController, :index
     get "/retrieve/new", RetrieveController, :new
     post "/retrieve", RetrieveController, :create
-    get "/retrieve", RetrieveController, :show, param: "org_name"
+    get "/retrieve/:id", RetrieveController, :show
+    
   end
 
   scope "/github", GitrieveWeb do

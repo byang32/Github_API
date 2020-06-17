@@ -7,22 +7,16 @@ defmodule GitrieveWeb.RetrieveController do
 
     def index(conn, _params) do
         company = Repo.all(Company)
-        
         render(conn, "index.html", company: company)
     end
 
-    def show(conn, params) do
-        repos = Github.get_repos("scriptdrop")
-        
-        IO.puts "+++++++++++++++"
-        IO.inspect(repos)
-        IO.puts "+++++++++++++++"
-        render(conn, "show.html", repos: repos)
+    def show(conn, %{"id" => company_id}) do
+       company = Repo.get!(Company, company_id)
+       render(conn, "show.html", company: company)
     end
 
     def new(conn, _params) do
         changeset = Company.changeset(%Company{}, %{})
-       
         render(conn, "new.html", changeset: changeset)
     end
 

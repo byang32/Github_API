@@ -1,3 +1,28 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
+.help-block {
+    color: red;
+    text-transform: capitalize;
+    position: absolute;
+    top: 95px;
+    margin-bottom: 50px;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 50px;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+input#company_org_name {
+    margin-top: 25px;
+    width: 50%;
+    background-color: #cccccc4d;
+    padding-left: 10px;
+}
