@@ -1,5 +1,8 @@
 # Gitrieve
 
+## Description
+This is a Github API that uses Tentacat to retrieve an organization's repositories. 
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
