@@ -1,6 +1,6 @@
 defmodule Github do
 
-  def github_client, do: Tentacat.Client.new(%{access_token: "c4a847cad1988bdf9454351c257efdf7460d7c50"})
+  def github_client, do: Tentacat.Client.new()
 
   def fetch_github(org_name) do
     client = github_client()
@@ -21,7 +21,7 @@ defmodule Github do
       location: data["location"],
       org_name: data["name"],
       public_repos: data["public_repos"],
-      url: data["url"]
+      url: data["html_url"]
     ]
     
   end
@@ -35,5 +35,6 @@ defmodule Github do
       repo_list: get_in(data, [all, "name"]), 
       repo_url: get_in(data, [all, "clone_url"])
     ]
+    
   end
 end

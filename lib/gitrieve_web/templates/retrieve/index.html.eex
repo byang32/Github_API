@@ -3,7 +3,7 @@
 
 <ul class="collection">
         <li class="collection-item">
-            Organization: <%= company.org_name %>
+            Organization: <%= link company.org_name, to: company.url %>
         </li>
         <li class="collection-item">
             Location: <%= company.location %>
@@ -11,25 +11,21 @@
         <li class="collection-item">
             Public Repos: <%= company.public_repos %>
         </li>
-        <li class="collection-item">
-            Github Url: <%= company.url %>
-        </li>
 </ul>
+<section>
+<div class="repos">
 <h5>Repositories</h6>
-<ul class="collection">
-<!-- ************* for loop ************** -->
-        <%= Enum.map(company.repo_list, fn(repo) -> %>
-        <%= content_tag(:li, "#{repo}", class: "collection-item") %>
-         <% end) %>
- <!-- ********** end ********** -->
-
-<!-- ************* for loop repo_url ************ -->
-        <%= Enum.map(company.repo_url, fn(u) -> %>
-        <%= content_tag(:li, "#{u}", class: "collection-item")%>
-         <% end) %>
-<!-- ************ end ************* -->
+<ul class="collection urls">
+      <% repo_info = Enum.zip(company.repo_list, company.repo_url)%>
+      <%= Enum.map(repo_info, fn({repo, url}) -> %>
+      <%= link to: url do %>
+      <%= content_tag(:li, "#{repo}", class: "collection-item repos") %>
+      <% end %>
+      <%= end) %>
 </ul>
 <% end %>
+</div>
+</section>
 <div>
     <%= link to: Routes.retrieve_path(@conn, :show) do %>
         <p>Show Repositories</p>
