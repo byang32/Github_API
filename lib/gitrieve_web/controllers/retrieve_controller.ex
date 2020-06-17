@@ -29,10 +29,6 @@ defmodule GitrieveWeb.RetrieveController do
     def create(conn, %{"company" => company}) do
         changeset = Company.changeset(%Company{},
             Github.fetch_github(company["org_name"]))
-        IO.puts "+++++++++++++++"
-        IO.inspect(Github.fetch_github(company["org_name"]))
-        IO.inspect(changeset)
-        IO.puts "+++++++++++++++"
         case Repo.insert(changeset) do
             {:ok, post} ->
                 conn

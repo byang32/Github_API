@@ -15,6 +15,6 @@ defmodule Gitrieve.Company do
     def changeset(struct, params \\ %{}) do
         struct
             |> cast(params, [:org_name, :location, :public_repos, :url, :repo_list, :repo_url])
-            |> validate_required([:org_name])
+            |> validate_required([:org_name], message: "not found, try again")
     end
 end

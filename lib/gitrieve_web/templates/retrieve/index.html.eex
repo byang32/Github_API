@@ -11,6 +11,7 @@
         <li class="collection-item">
             Public Repos: <%= company.public_repos %>
         </li>
+        <li class="collection-item">company.message</li>
 </ul>
 <section>
 <div class="repos">
@@ -19,7 +20,7 @@
       <% repo_info = Enum.zip(company.repo_list, company.repo_url)%>
       <%= Enum.map(repo_info, fn({repo, url}) -> %>
       <%= link to: url do %>
-      <%= content_tag(:li, "#{repo}", class: "collection-item repos") %>
+      <%= content_tag(:li, "#{repo}", class: "collection-item") %>
       <% end %>
       <%= end) %>
 </ul>
