@@ -19,7 +19,7 @@
 </ul>
 <% end %>
 
-<div class="material-icons">
+<div class="fixed-action-btn material-icons">
     <%= link to: Routes.retrieve_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">add</i>
     <% end %>
