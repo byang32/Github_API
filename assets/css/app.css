@@ -26,3 +26,7 @@ input#company_org_name {
     background-color: #cccccc4d;
     padding-left: 10px;
 }
+
+::placeholder {
+    color: black;
+}
