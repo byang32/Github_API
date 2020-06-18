@@ -12,7 +12,7 @@
   <body>
     <nav class="light-blue">
       <div class="nav-wrapper main-container">
-        <a href="/" class="brand-logo">
+        <a href="/" class="header-main brand-logo center">
         Gitrieve
         </a>
       </div>

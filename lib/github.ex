@@ -27,8 +27,7 @@ defmodule Github do
 
       {404, data, _response} ->
         [error: get_in(data, ["message"])]
-    end
-    
+      end
   end
 
   def get_repos(org_name) do
@@ -36,16 +35,14 @@ defmodule Github do
     case Tentacat.Repositories.list_orgs(client, org_name) do
       {200, data, _response} ->
         all = fn :get, data, next -> Enum.map(data, next) end
+        
         [
           repo_list: get_in(data, [all, "name"]), 
           repo_url: get_in(data, [all, "clone_url"])
         ]
+
       {404, data, _response} ->
         [error: get_in(data, ["message"])]
-        
     end
-
-    
-    
   end
 end

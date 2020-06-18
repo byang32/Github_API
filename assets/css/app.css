@@ -18,15 +18,40 @@
     margin: auto;
     text-align: center;
     width: 100%;
+    background-color: slategrey;
+    margin-top: 100px;
 }
 
 input#company_org_name {
     margin-top: 25px;
     width: 50%;
-    background-color: #cccccc4d;
+    background-color: #cccccc42;
     padding-left: 10px;
 }
 
 ::placeholder {
     color: black;
+}
+
+.header-main {
+    font-size: 5.1rem!important;
+}
+
+nav.light-blue {
+    height: 100px;
+    padding: 25px;
+}
+
+p.whats-good {
+    padding-top: 25px;
+    color: white;
+}
+
+main.container {
+    background-color: slategray;
+    padding: 25px;
+    margin-top: 50px;
+}
+h5, h4 {
+    color: white;
 }
