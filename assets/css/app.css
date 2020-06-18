@@ -2,10 +2,11 @@
 
 @import "./phoenix.css";
 .help-block {
-    color: red;
+    color: rgb(233, 10, 10);
+    text-shadow: 1px 1px 5px white;
     text-transform: capitalize;
     position: absolute;
-    top: 95px;
+    top: 120px;
     margin-bottom: 50px;
     margin: auto;
     text-align: center;
@@ -27,6 +28,7 @@ input#company_org_name {
     width: 50%;
     background-color: #cccccc42;
     padding-left: 10px;
+    color: white;
 }
 
 ::placeholder {
