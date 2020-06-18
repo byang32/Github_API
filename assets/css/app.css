@@ -20,7 +20,6 @@
     text-align: center;
     width: 100%;
     background-color: slategrey;
-    margin-top: 100px;
 }
 
 input#company_org_name {
@@ -53,6 +52,7 @@ main.container {
     background-color: slategray;
     padding: 25px;
     margin-top: 50px;
+    border-radius: 5px;
 }
 h5, h4 {
     color: white;
