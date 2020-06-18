@@ -1,5 +1,5 @@
 <section><p class="whats-good">
-    Welcome to Gitrieve a Web API that retrieves an organization's repositories from Github.
+    Welcome to Gitrieve, a web API that retrieves an organization's repositories from Github.
 </p></section>
 
 <%= for company <- @company do %>
