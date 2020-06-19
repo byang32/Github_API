@@ -6,6 +6,12 @@ This is a Github API that uses [Tentacat](https://hexdocs.pm/tentacat/readme.htm
 ![gitrieve](gitrieve.png)
 
 
+![gitrieve](gitrieve_search.png)
+
+
+![gitrieve](gitrieve_repositories.png)
+
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
