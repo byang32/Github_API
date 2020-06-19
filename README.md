@@ -1,7 +1,7 @@
 # Gitrieve
 
 ## Description
-This is a Github API that uses [Tentacat](https://hexdocs.pm/tentacat/readme.html) to retrieve an organization's repositories. 
+This is a Github API that uses [Tentacat](https://hexdocs.pm/tentacat/readme.html) to search and retrieve an organization's public repositories.
 
 To start your Phoenix server:
 
