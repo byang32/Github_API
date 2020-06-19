@@ -3,13 +3,11 @@
 ## Description
 This is a Github API that uses [Tentacat](https://hexdocs.pm/tentacat/readme.html) to search and retrieve an organization's public repositories. This app was written in Elixir, Phoenix, and PostgresSQL.
 
-![gitrieve](gitrieve.png)
-
-
 ![gitrieve](gitrieve_search.png)
 
+![gitrieve](gitrieve.png)
 
-![gitrieve](gitrieve_repositories.png)
+![gitrieve](gitrieve-repositories.png)
 
 
 To start your Phoenix server:
