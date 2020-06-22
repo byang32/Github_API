@@ -3,10 +3,12 @@
 </p></section>
 
 <%= for company <- @company do %>
+<div>
 <h4> <%= company.org_name%> Repositories</h4>
     <ul class="collection">
         <li class="collection-item">
             Organization: <%= link company.org_name, to: company.url %>
+            <span class="secondary-content material-icons">link</span>
         </li>
         <li class="collection-item">
             Location: <%= company.location %>
@@ -17,11 +19,16 @@
         <%= link to: Routes.retrieve_path(@conn, :show, company) do %>
         <li class="collection-item">
          Repositories 
-        <span class="secondary-content material-icons">arrow_forward</span>
+        <span class="secondary-content material-icons">link</span>
         </li>
          <% end %>
+         <li class="collection-item secondary-content material-icons">
+            <%= link "delete", to: Routes.retrieve_path(@conn, :delete, company), method: :delete %>
+        </li>
     </ul>
+    
 <% end %>
+</div>
 
 <div class="fixed-action-btn material-icons">
     <%= link to: Routes.retrieve_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>

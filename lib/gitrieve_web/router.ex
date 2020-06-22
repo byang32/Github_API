@@ -21,6 +21,7 @@ defmodule GitrieveWeb.Router do
     get "/retrieve/new", RetrieveController, :new
     post "/retrieve", RetrieveController, :create
     get "/retrieve/:id", RetrieveController, :show
+    delete "/retrieve/:id", RetrieveController, :delete
     
   end
 

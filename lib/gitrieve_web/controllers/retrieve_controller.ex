@@ -24,13 +24,21 @@ defmodule GitrieveWeb.RetrieveController do
         changeset = Company.changeset(%Company{},
             Github.fetch_github(company["org_name"]))
         case Repo.insert(changeset) do
-            {:ok, post} ->
+            {:ok, _post} ->
                 conn
                 |> put_flash(:info, "Repositories has been retrieved")
                 |> redirect(to: Routes.retrieve_path(conn, :index))
             {:error, changeset} ->
                 render(conn, "new.html", changeset: changeset)
         end
-        
+    end
+
+    def delete(conn, %{"id" => company_id}) do
+        Repo.get!(Company, company_id)
+        |> Repo.delete!
+
+        conn
+        |> put_flash(:info, "Repository Deleted")
+        |> redirect(to: Routes.retrieve_path(conn, :index))
     end
 end

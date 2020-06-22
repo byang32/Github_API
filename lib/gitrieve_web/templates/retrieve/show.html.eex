@@ -5,7 +5,7 @@
       <%= link to: url do %>
       <%= content_tag(:li, "#{repo}", class: "collection-item repo-list") %>
       <% end %>
-      <%= end) %>
+      <% end) %>
 </ul>
 <div class="material-icons">
       <%= link to: Routes.retrieve_path(@conn, :index), class: "btn-floating btn-large waves-effect waves-light red" do %>
