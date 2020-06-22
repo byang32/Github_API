@@ -1,7 +1,14 @@
-# Gitrieve
+# Gitrieve a Github API App
 
 ## Description
-This is a Github API that uses [Tentacat](https://hexdocs.pm/tentacat/readme.html) to retrieve an organization's repositories. 
+This is a Github API that uses [Tentacat](https://hexdocs.pm/tentacat/readme.html) to search and retrieve an organization's public repositories. This app was written in Elixir, Phoenix, and PostgresSQL. [Materialize](https://materializecss.com/showcase.html) CSS was used for styling.
+
+![gitrieve](gitrieve_search.png)
+
+![gitrieve](gitrieve.png)
+
+![gitrieve](gitrieve-repositories.png)
+
 
 To start your Phoenix server:
 
