@@ -25,8 +25,11 @@
          Repositories 
          <% end %>
         <span class="right material-icons">
-            <%= link "delete", to: Routes.retrieve_path(@conn, :delete, company), method: :delete %>
+            <%= link "link", to: Routes.retrieve_path(@conn, :show, company), method: :delete %>
         </span>
+        </li>
+        <li class="collection-item right material-icons">
+            <%= link "delete", to: Routes.retrieve_path(@conn, :delete, company), method: :delete %>
         </li>
     </ul>
     
