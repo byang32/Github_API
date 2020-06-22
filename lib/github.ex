@@ -1,6 +1,6 @@
 defmodule Github do
 
-  def github_client, do: Tentacat.Client.new(%{access_token: "f82b26dc9a070045c7c9b9d0b5c422e6145c3331"})
+  def github_client, do: Tentacat.Client.new()
 
   def fetch_github(org_name) do
     client = github_client()
