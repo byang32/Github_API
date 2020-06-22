@@ -8,22 +8,25 @@
     <ul class="collection">
         <li class="collection-item">
             Organization: <%= link company.org_name, to: company.url %>
-            <span class="secondary-content material-icons">link</span>
+            <span class="secondary-content material-icons">
+            <%= link "link", to: company.url %>
+            </span>
         </li>
         <li class="collection-item">
             Location: <%= company.location %>
+            <span class="secondary-content material-icons">
+            <%= link "place", to: "https://www.google.com/maps/search/?api=1&query=#{company.org_name}+#{company.location}"%></span>
         </li>
         <li class="collection-item">
             Public Repos: <%= company.public_repos %>
         </li>
-        <%= link to: Routes.retrieve_path(@conn, :show, company) do %>
+            <%= link to: Routes.retrieve_path(@conn, :show, company) do %>
         <li class="collection-item">
          Repositories 
-        <span class="secondary-content material-icons">link</span>
-        </li>
          <% end %>
-         <li class="collection-item secondary-content material-icons">
+        <span class="right material-icons">
             <%= link "delete", to: Routes.retrieve_path(@conn, :delete, company), method: :delete %>
+        </span>
         </li>
     </ul>
     
