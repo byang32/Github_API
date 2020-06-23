@@ -18,6 +18,11 @@
       </div>
       </nav>
     <main role="main" class="container">
+     <section>
+      <p class="whats-good">
+      Welcome to Gitrieve, a web API that retrieves an organization's repositories from Github.
+      </p>
+      </section>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>

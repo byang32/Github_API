@@ -5,13 +5,16 @@ defmodule GitrieveWeb.RetrieveController do
     alias Gitrieve.Company
     alias Gitrieve.Repo
 
-    def index(conn, _params) do
-        company = Repo.all(Company)
-        render(conn, "index.html", company: company)
+    def index(conn, params) do
+        # company = Repo.all(Company)
+        page = Company
+                |> Repo.paginate(params) 
+        render(conn, "index.html", company: page.entries, page: page)
     end
 
     def show(conn, %{"id" => company_id}) do
        company = Repo.get!(Company, company_id)
+        
        render(conn, "show.html", company: company)
     end
 

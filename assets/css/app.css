@@ -61,3 +61,7 @@ h5, h4 {
 ul.collection {
     background-color: white;
 }
+
+.pagination li {
+    height: 40px!important;
+}
