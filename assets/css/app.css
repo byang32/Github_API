@@ -18,20 +18,29 @@
     margin: auto;
     text-align: center;
     width: 100%;
-    background-color: slategrey;
+    background-color: #03a9f4;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+}
+.form-row {
+    border-radius: 5px;
 }
 input#company_org_name {
     margin-top: 25px;
     width: 50%;
-    background-color: #cccccc42;
+    background-color: white;
     padding-left: 10px;
-    color: white;
+    color: rgba(0, 0, 0, 0.541);
 }
 ::placeholder {
     color: black;
 }
 .header-main {
     font-size: 5.1rem!important;
+}
+.brand-logo {
+    font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
 }
 nav.light-blue {
     height: 100px;
@@ -43,12 +52,6 @@ p.whats-good {
     text-align: center;
     font-size: 2rem;
 }
-main.container {
-    /* background-color: slategray;
-    padding: 25px;
-    margin-top: 50px;
-    border-radius: 5px; */
-}
 h5, h4 {
     color: rgba(0, 0, 0, 0.541);
     padding: 5px 0 0 5px;
@@ -58,8 +61,16 @@ ul.collection {
     font-size: 1.2rem;
     color: rgba(0, 0, 0, 0.541);
 }
+ul.collection.repos-urls {
+    padding: 20px;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
 .pagination li {
     height: 40px!important;
+}
+.repo_list {
+    padding: 20px;
 }
 .whiskey, flex-container > div {
     margin: 10px;
@@ -71,8 +82,10 @@ ul.collection {
 li.collection-item {
     display: -webkit-box;
 }
-.col.s12.m6.l3, .card {
-    /* min-height: 50vh; */
+div.show {
+    margin: auto;
+    text-align: center;
+    flex-flow: wrap;
 }
 .pagination {
     padding-top: 10px;
@@ -80,4 +93,10 @@ li.collection-item {
 img {
     width: 75%!important;
     margin: auto;
+}
+p.repo-list.flow-text {
+    padding-top: 30px;
+}
+.row.btn-back {
+    padding-top: 20px;
 }
