@@ -7,7 +7,7 @@ This is a Github API that uses [Tentacat](https://hexdocs.pm/tentacat/readme.htm
 
 ![gitrieve](gitrieve_main.png)
 
-![gitrieve](gitrieve-repos.png)
+![gitrieve](gitrieve_repos.png)
 
 
 To start your Phoenix server:
