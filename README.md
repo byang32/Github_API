@@ -1,7 +1,6 @@
 # Gitrieve a Github API App
 
-## Description
-This is a Github API that uses [Tentacat](https://hexdocs.pm/tentacat/readme.html) to search and retrieve an organization's public repositories. This app was written in Elixir, Phoenix, and PostgresSQL. [Materialize](https://materializecss.com/showcase.html) CSS was used for styling.
+This Gitrieve App uses the [Tentacat](https://hexdocs.pm/tentacat/readme.html)(Simple Elixir Wrapper for Github API) to search and retrieve an organization's public repositories. The retrieved data is then displayed showing an organization's name, location(if available), public repos, repositories, and avatar.This app was written in Elixir, Phoenix, and PostgresSQL. [Materialize](https://materializecss.com/showcase.html) CSS was used for styling.
 
 ![gitrieve](gitrieve-search.png)
 
