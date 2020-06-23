@@ -45,7 +45,8 @@ defmodule Gitrieve.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:tentacat, "~> 1.6"},
       {:scrivener_ecto, "~> 2.4"},
-      {:scrivener_html, "~> 1.8"}
+      {:scrivener_html, "~> 1.8"},
+      {:ueberauth, "~> 0.6.3"}
     ]
   end
 
