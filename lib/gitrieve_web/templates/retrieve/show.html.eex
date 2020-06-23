@@ -1,14 +1,22 @@
-<h4><%= @company.org_name %> Repositories</h4>
-<ul class=" collection repos-urls">
-      <% repo_info = Enum.zip(@company.repo_list, @company.repo_url)%>
+<div class="row">
+      <div class=" col s12 l12 center">
+            <h4><%= @company.org_name %> Repositories</h4>
+      </div>
+</div>
+<div class="row show">
+      <% repo_info = Enum.zip(@company.repo_list, @company.repo_url)%>  
       <%= Enum.map(repo_info, fn({repo, url}) -> %>
-      <%= link to: url do %>
-      <%= content_tag(:li, "#{repo}", class: "collection-item repo-list") %>
-      <% end %>
-      <% end) %>
-</ul>
-<div class="material-icons">
-      <%= link to: Routes.retrieve_path(@conn, :index), class: "btn-floating btn-large waves-effect waves-light red" do %>
+      <div class="col s12 l4 show z-depth-2 flex-container">
+            <%= link to: url do %>
+            <%= content_tag(:p, "#{repo}", class: "repo-list flow-text") %>
+            <% end %>
+      </div>
+            <% end) %>
+</div>
+<div class="row btn-back" >
+      <div class="col s12 l12 material-icons center">
+            <%= link to: Routes.retrieve_path(@conn, :index), class: "btn-large waves-effect waves-light red" do %>
             <i class="material-icons">arrow_back</i>
-      <% end %>
+            <% end %>
+      </div>
 </div>
