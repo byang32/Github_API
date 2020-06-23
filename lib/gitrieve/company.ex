@@ -10,11 +10,13 @@ defmodule Gitrieve.Company do
         field :url, :string
         field :repo_list, {:array, :string}
         field :repo_url, {:array, :string}
+        field :avatar_url, :string
     end
 
     def changeset(struct, params \\ %{}) do
         struct
-            |> cast(params, [:org_name, :location, :public_repos, :url, :repo_list, :repo_url])
+            |> cast(params, [:org_name, :location, :public_repos, :url, 
+                            :repo_list, :repo_url, :avatar_url])
             |> validate_required([:org_name], message: "not found, try again")
     end
 end

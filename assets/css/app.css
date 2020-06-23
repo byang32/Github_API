@@ -12,7 +12,6 @@
     text-align: center;
     width: 100%;
 }
-
 .form-group {
     position: relative;
     margin-bottom: 50px;
@@ -21,7 +20,6 @@
     width: 100%;
     background-color: slategrey;
 }
-
 input#company_org_name {
     margin-top: 25px;
     width: 50%;
@@ -29,39 +27,57 @@ input#company_org_name {
     padding-left: 10px;
     color: white;
 }
-
 ::placeholder {
     color: black;
 }
-
 .header-main {
     font-size: 5.1rem!important;
 }
-
 nav.light-blue {
     height: 100px;
     padding: 25px;
 }
-
 p.whats-good {
     padding-top: 25px;
-    color: white;
+    color: rgba(0, 0, 0, 0.541);
+    text-align: center;
+    font-size: 2rem;
 }
-
 main.container {
-    background-color: slategray;
+    /* background-color: slategray;
     padding: 25px;
     margin-top: 50px;
-    border-radius: 5px;
+    border-radius: 5px; */
 }
 h5, h4 {
-    color: white;
+    color: rgba(0, 0, 0, 0.541);
+    padding: 5px 0 0 5px;
 }
-
 ul.collection {
     background-color: white;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.541);
 }
-
 .pagination li {
     height: 40px!important;
+}
+.whiskey, flex-container > div {
+    margin: 10px;
+    background-color: #f1f1f1;
+    text-align: center; 
+    width: 100px;
+    line-height: 75px;
+}
+li.collection-item {
+    display: -webkit-box;
+}
+.col.s12.m6.l3, .card {
+    /* min-height: 50vh; */
+}
+.pagination {
+    padding-top: 10px;
+}
+img {
+    width: 75%!important;
+    margin: auto;
 }
