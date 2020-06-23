@@ -22,7 +22,8 @@ defmodule Github do
           location: data["location"],
           org_name: data["name"],
           public_repos: data["public_repos"],
-          url: data["html_url"]
+          url: data["html_url"],
+          avatar_url: data["avatar_url"]
         ]
 
       {404, data, _response} ->

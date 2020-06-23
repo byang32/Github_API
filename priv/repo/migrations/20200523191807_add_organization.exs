@@ -9,6 +9,7 @@ defmodule Gitrieve.Repo.Migrations.AddOrganization do
       add :url, :string
       add :repo_list, {:array, :string}
       add :repo_url, {:array, :string}
+      add :avatar_url, :string
     end
   end
 end

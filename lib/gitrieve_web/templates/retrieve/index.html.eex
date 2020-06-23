@@ -1,43 +1,55 @@
-<%= for company <- @company do %>
-<div>
-<h4> <%= company.org_name%> Repositories</h4>
-    <ul class="collection">
-        <li class="collection-item">
-            Organization: <%= link company.org_name, to: company.url %>
-            <span class="secondary-content material-icons">
-            <%= link "link", to: company.url %>
-            </span>
-        </li>
-        <li class="collection-item">
-            Location: <%= company.location %>
-            <span class="secondary-content material-icons">
-            <%= link "place", to: "https://www.google.com/maps/search/?api=1&query=#{company.org_name}+#{company.location}"%></span>
-        </li>
-        <li class="collection-item">
-            Public Repos: <%= company.public_repos %>
-        </li>
-            <%= link to: Routes.retrieve_path(@conn, :show, company) do %>
-        <li class="collection-item">
-         Repositories 
-         <% end %>
-        <span class="right material-icons">
-            <%= link "link", to: Routes.retrieve_path(@conn, :show, company) %>
-        </span>
-        </li>
-        <li class="collection-item right material-icons">
-            <%= link "delete", to: Routes.retrieve_path(@conn, :delete, company), method: :delete %>
-        </li>
-    </ul>
-    
-<% end %>
-</div>
-
-<div class="center">
-<%= pagination_links @page, view_style: :materialize, next: "Next", previous: "Prev" %>
-</div>
-
-<div class="fixed-action-btn material-icons">
-    <%= link to: Routes.retrieve_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+<div class="row">
+    <div class="col s12 center">
+    <%= link to: Routes.retrieve_path(@conn, :new), class: "btn-large waves-effect waves-light red" do %>
     <i class="material-icons">add</i>
     <% end %>
+    </div>
+</div>
+<div class="row">
+<%= for company <- @company do %>
+    <div class="col s12 m6 l3 z-depth-3 whiskey flex-container">
+        <div class="card">
+        <h5><%= company.org_name%></h5>
+        <div class="card-image">
+            <%= img_tag(company.avatar_url)%>
+            <%= link to: Routes.retrieve_path(@conn, :new), class: "btn-floating halfway-fab waves-effect waves-light red" do %>
+            <i class="material-icons">add</i>
+            <% end %>
+        </div>
+        <ul class="collection">
+            <li class="collection-item">
+                <%= link company.org_name, to: company.url %>
+                <span class="secondary-content material-icons">
+                <%= link "link", to: company.url %>
+                </span>
+            </li>
+            <%= link to: Routes.retrieve_path(@conn, :show, company) do %>
+            <li class="collection-item">
+                Repositories 
+                <% end %>
+                <span class="right material-icons">
+                <%= link "link", to: Routes.retrieve_path(@conn, :show, company) %>
+                </span>
+            </li>
+            <li class="collection-item">
+                Public Repos: <%= company.public_repos %>
+            </li>
+            <li class="collection-item">
+            <%= company.location %>
+                <span class="secondary-content material-icons">
+                <%= link "place", to: "https://www.google.com/maps/search/?api=1&query=#{company.org_name}+#{company.location}"%>
+                </span>
+            </li>
+            <li class="collection-item right material-icons">
+                <%= link "delete", to: Routes.retrieve_path(@conn, :delete, company), method: :delete %>
+            </li>
+        </ul>
+        </div>
+    </div>    
+<% end %>
+</div>
+<div class="row">
+<div class="col s12 center">
+<%= pagination_links @page, view_style: :materialize, next: "Next", previous: "Prev" %>
+</div>
 </div>
