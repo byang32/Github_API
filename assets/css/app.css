@@ -100,3 +100,7 @@ p.repo-list.flow-text {
 .row.btn-back {
     padding-top: 20px;
 }
+a.waves-effect.waves-light.btn.orange {
+    vertical-align: baseline;
+    border-radius: 5px;
+}
