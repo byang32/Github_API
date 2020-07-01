@@ -20,7 +20,8 @@ defmodule Gitrieve.MixProject do
   def application do
     [
       mod: {Gitrieve.Application, []},
-      extra_applications: [:logger, :runtime_tools, :tentacat, :scrivener_ecto, :scrivener_html]
+      extra_applications: [:logger, :runtime_tools, :tentacat, :scrivener_ecto,
+       :scrivener_html, :ueberauth, :ueberauth_github]
     ]
   end
 
@@ -46,7 +47,8 @@ defmodule Gitrieve.MixProject do
       {:tentacat, "~> 1.6"},
       {:scrivener_ecto, "~> 2.4"},
       {:scrivener_html, "~> 1.8"},
-      {:ueberauth, "~> 0.6.3"}
+      {:ueberauth, "~> 0.6.3"},
+      {:ueberauth_github, "~> 0.8.0"}
     ]
   end
 

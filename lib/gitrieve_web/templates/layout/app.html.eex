@@ -16,6 +16,18 @@
         <a href="/" class="header-main brand-logo center">
         Gitrieve
         </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <%= if @conn.assigns[:current_user] do %>
+              <li>
+                <%= link "Sign Out", to: Routes.auth_path(@conn, :signout) %>
+              </li>
+            <% else %>
+              <li>
+              <%= link "Sign in with Github", to: Routes.auth_path(@conn, :request, "github"), 
+              class: "waves-effect waves-light btn orange" %>
+              </li>
+            <% end %>
+          </ul>
       </div>
       </nav>
     <main role="main" class="container">

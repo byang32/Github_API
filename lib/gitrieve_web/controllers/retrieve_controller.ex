@@ -5,6 +5,8 @@ defmodule GitrieveWeb.RetrieveController do
     alias Gitrieve.Company
     alias Gitrieve.Repo
 
+    # plug GitreveWeb.Plugs.RequireAuth when action in [:index]
+
     def index(conn, params) do
         # company = Repo.all(Company)
         page = Company
@@ -24,8 +26,8 @@ defmodule GitrieveWeb.RetrieveController do
     end
 
     def create(conn, %{"company" => company}) do
-        changeset = Company.changeset(%Company{},
-            Github.fetch_github(company["org_name"]))
+        github = Github.fetch_github(company["org_name"])
+        changeset = Company.changeset(%Company{}, github)
         case Repo.insert(changeset) do
             {:ok, _post} ->
                 conn
